@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="macrepo:postcardCModel" xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+
+<!-- Object Properties -->
+
+<foxml:objectProperties>
+
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Large Content Model"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-07-21T11:40:51.192Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-07-21T13:23:53.225Z"/>
+</foxml:objectProperties>
+
+<!-- Datastream Composite Model -->
+
+<foxml:datastream ID="DS-COMPOSITE-MODEL" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DS-COMPOSITE-MODEL.0" LABEL="Datastreams for this object" MIMETYPE="text/xml">
+
+<foxml:xmlContent>
+<dsCompositeModel xmlns="info:fedora/fedora-system:def/dsCompositeModel#">
+ 
+<dsTypeModel ID="DC">
+<form FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" MIME="text/xml"></form>
+</dsTypeModel>
+ 
+<dsTypeModel ID="RELS-EXT">
+<form FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" MIME="application/rdf+xml"></form>
+</dsTypeModel>
+
+<dsTypeModel ID="TIFF">
+<form MIME="image/tiff"></form>
+</dsTypeModel>
+ 
+<dsTypeModel ID="JPG">
+<form MIME="image/jpeg"></form>
+</dsTypeModel>
+ 
+<dsTypeModel ID="TN">
+<form MIME="image/jpeg"></form>
+</dsTypeModel>
+ 
+<dsTypeModel ID="MODS">
+<form MIME="text/xml"></form>
+</dsTypeModel>
+
+<dsTypeModel ID="DublinCore">
+<form MIME="text/xml"></form>
+</dsTypeModel>
+
+<dsTypeModel ID="MACREPO">
+<form MIME="text/xml"></form>
+</dsTypeModel>
+
+ 
+<dsTypeModel ID="JP2">
+<form MIME="image/jp2"></form>
+</dsTypeModel>
+
+</dsCompositeModel>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+
+<!-- Dublin Core Datastrem (Fedora Dublin Core) -->
+
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2011-07-21T11:40:51.192Z" MIMETYPE="text/xml"
+FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="393">
+<foxml:xmlContent>
+ 
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/">
+
+<dc:title>Postcard Content Model</dc:title>
+<dc:identifier>macrepo:postcardCModel</dc:identifier>
+ 
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+
+<!-- Relationship / RDF datastream ... in this case the relationshop hasModel -->
+
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-07-21T11:40:52.105Z"
+MIMETYPE="text/xml" SIZE="327">
+
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="info:fedora/macrepo:postcardCModel">
+<fedora-model:hasModel xmlns:fedora-model="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/fedora-system:ContentModel-3.0">
+</fedora-model:hasModel>
+</rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+
+<!-- Islandora Content Model Datastream for this Content Model ... it is where the ingest rules, display methods, mimetypes, and datastream IDs related to the object to be created -->
+
+<foxml:datastream ID="ISLANDORACM" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="ISLANDORACM.0" LABEL="Islandora Large Content Model" CREATED="2011-07-21T13:23:53.225Z" MIMETYPE="application/xml"
+SIZE="2175">
+ 
+<foxml:xmlContent>
+<content_model xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Large Content Model"
+xsi:schemaLocation="http://www.islandora.ca [http://localhost/islandoracm.xsd]">
+
+<!-- the mimetype for uploading defined -->
+ 
+<mimetypes>
+<type>image/tiff</type>
+<type>image/tif</type>
+</mimetypes>
+
+<!-- the actions (embedded in .inc files which are php files) that happen to tif images when they are ingested -->
+ 
+<ingest_rules>
+<rule>
+<applies_to>image/tif</applies_to>
+<applies_to>image/tiff</applies_to>
+
+<rule>
+<applies_to>image/tif</applies_to>
+<applies_to>image/tiff</applies_to>
+<!-- this ingest method calls the ImageManipulation.inc file in the islandora/plugins directory and calls the createThumbnail
+function and passes the width/height parameters to imagemagick which converts the tif image into a jpg thumbnail and pushes that
+result into the TN datastream -->
+ 
+<ingest_methods>
+<ingest_method dsid="TN" file="plugins/ImageManipulation.inc" method="createThumbnail" modified_files_ext="jpg" module="fedora_repository">
+ 
+<parameters>
+<parameter name="width">120</parameter>
+<parameter name="height">120</parameter>
+</parameters>
+ 
+</ingest_method>
+</ingest_methods>
+</rule>
+</ingest_rules>
+
+<!-- a default DC ingest form for the object ... ideally we will build a MODS based form to hold the metadata and it will get
+automatically transformed to DC on ingest/creation ... this is just a placeholder -->
+ 
+<ingest_form dsid="DC" page="2">
+<form_builder_method class="buildQDCForm" file="FormBuilder" handler="" method="handleQDCForm" module="plugins/DemoFormBuilder.inc">
+</form_builder_method>
+ 
+<form_elements>
+<element label="Title" name="dc:title" required="false" type="textfield">
+<description>Title of the letter</description>
+</element>
+</form_elements>
+</ingest_form>
+
+<!-- the list of datastreams that are included in the Letter Digital Object. By listing the datastreams here, we will see them
+in the dropdown list when we administer the object -->
+ 
+<datastreams>
+<datastream dsid="TIFF"></datastream>
+<datastream dsid="JPG"></datastream>
+<datastream dsid="JP2"></datastream>
+
+<!-- Display methods are similar to ingest rules in that they call php functions that are embedded in .inc files. In this case
+we call the ShowDemoStreams.inc in the islandora/plugins/ directory. There are some default display methods embedded in the
+islandora module ... eg. for the TN datastream -->
+ 
+<display_method class="ShowSlideStreamsInFieldSets" default="true" file="plugins/ShowDemoStreams.inc" method="showJPG" module="
+fedora_repository"></display_method>
+</datastream>
+
+<datastream dsid="TN"></datastream>
+<datastream dsid="MODS"></datastream>
+<datastream dsid="MACREPO"></datastream>
+</datastreams>
+</content_model>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>
