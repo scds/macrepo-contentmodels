@@ -6,7 +6,7 @@
 <foxml:objectProperties>
 
 <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
-<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Large Content Model"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Postcard Content Model"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-07-21T11:40:51.192Z"/>
 <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-07-21T13:23:53.225Z"/>
